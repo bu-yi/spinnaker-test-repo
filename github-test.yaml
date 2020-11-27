@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  labels:
+    app: gitlab-test
+  name: gitlab-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gitlab-test
+  template:
+    metadata:
+      labels:
+        app: gitlab-test
+    spec:
+      containers:
+        - image: 'nginx:1.7'
+          name: gitlab-test
